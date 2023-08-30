@@ -1,17 +1,20 @@
-import static UI.UIMenu.*;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("..::Hola Mundo::..\n");
 
-        Estudiante estudiante = new Estudiante("Rocael Lopez", "rocael@uv.mx");
-        estudiante.mostrarNombre();
+        Maestro maestro = new Maestro("Luis Morales", "luismorales04@uv.mx");
+        System.out.println(maestro.getNombre());
 
-        estudiante.setNombre("Carlos Josue");
-        estudiante.setTelefono("0123456789");
+        maestro.addCursoDisponible(new Date(), "7Hrs");
+        maestro.addCursoDisponible(new Date(), "8Hrs");
+        maestro.addCursoDisponible(new Date(), "9Hrs");
+        maestro.addCursoDisponible(new Date(), "10Hrs");
 
-        System.out.println(estudiante.getTelefono());
+        for (Maestro.CursoDisponible cursosDisponibles : maestro.getCursosDisponibles()){
+            System.out.println("Curso disponible: Fecha: " + cursosDisponibles.getFecha() + ", Hora: " + cursosDisponibles.getHora());
+        }
 
-        //mostarMenu();
     }
 }
