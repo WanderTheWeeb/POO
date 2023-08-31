@@ -12,6 +12,12 @@ public class Usuario {
         this.correo = correo;
     }
 
+    @Override
+    public String toString() {
+        return "Hola me llamo: " + nombre + ", Correo: " + correo + ", Matricula: " + matricula
+                + ", telefono: " + telefono;
+    }
+
     //Comportamientos
     public int getId() {
         return id;

@@ -59,6 +59,11 @@ public class Maestro extends Usuario{
             this.hora = hora;
         }
 
+        @Override
+        public String toString() {
+            return "Curso disponible: " + fecha + ", Hora: " + hora;
+        }
+
         public int getId() {
             return id;
         }
@@ -82,5 +87,10 @@ public class Maestro extends Usuario{
         public void setHora(String hora) {
             this.hora = hora;
         }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Especialidad: " + especialidad + ", RFC: " + rfc;
     }
 }
