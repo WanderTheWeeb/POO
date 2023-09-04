@@ -1,11 +1,20 @@
+import Model.Estudiante;
+import Model.Maestro;
+import Model.Usuario;
+
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("..::Hola Mundo::..\n");
 
+        Usuario usuario = new Maestro("Luis Morales", "luismorales04@uv.mx");
+        usuario.mostrarInformacionUsuario();
+
+
         Maestro maestro = new Maestro("Luis Morales", "luismorales04@uv.mx");
         System.out.println(maestro);
+
 
         Estudiante estudiante = new Estudiante("Rocael", "roca@uv.mx");
         System.out.println(estudiante);

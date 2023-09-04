@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,7 +9,7 @@ public class Maestro extends Usuario{
     private String rfc;
 
     //Metodo constructor
-    Maestro(String nombre, String correo){
+    public Maestro(String nombre, String correo){
         super(nombre, correo);
         System.out.println("Objeto declarado.");
     }
@@ -92,5 +94,10 @@ public class Maestro extends Usuario{
     @Override
     public String toString() {
         return super.toString() + ", Especialidad: " + especialidad + ", RFC: " + rfc;
+    }
+
+    @Override
+    public void mostrarInformacionUsuario() {
+        System.out.println("Maestro de la UV");
     }
 }

@@ -1,9 +1,11 @@
+package Model;
+
 public class Estudiante extends Usuario{
     //Atributos
     private String semestre;
 
     //Metodo constructor
-    Estudiante(String nombre, String correo){
+    public Estudiante(String nombre, String correo){
         super(nombre,correo);
     }
 
@@ -24,4 +26,11 @@ public class Estudiante extends Usuario{
     public String toString() {
         return super.toString() + ", Semestre: " + semestre;
     }
+
+    @Override
+    public void mostrarInformacionUsuario() {
+        System.out.println("Soy un estiante de LIS");
+    }
+
+
 }

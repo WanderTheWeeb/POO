@@ -1,4 +1,6 @@
-public class Usuario {
+package Model;
+
+public abstract class Usuario {
     //Atributos
     private int id;
     private String nombre;
@@ -17,6 +19,8 @@ public class Usuario {
         return "Hola me llamo: " + nombre + ", Correo: " + correo + ", Matricula: " + matricula
                 + ", telefono: " + telefono;
     }
+
+    public abstract void mostrarInformacionUsuario();
 
     //Comportamientos
     public int getId() {
