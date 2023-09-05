@@ -1,3 +1,5 @@
+package Temp;
+
 public class Cuadrado extends figura{
 
     @Override

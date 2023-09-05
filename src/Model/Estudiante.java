@@ -10,10 +10,6 @@ public class Estudiante extends Usuario{
     }
 
     //Comportamientos
-    public void mostrarNombre(){
-        System.out.println("Mi nombre es: " + getNombre());
-    }
-
     public String getSemestre() {
         return semestre;
     }

@@ -1,3 +1,5 @@
+package Temp;
+
 public abstract class figura {
     public abstract void dibujar(String nombre);
 

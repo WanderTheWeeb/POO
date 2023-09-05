@@ -11,18 +11,9 @@ public class Maestro extends Usuario{
     //Metodo constructor
     public Maestro(String nombre, String correo){
         super(nombre, correo);
-        System.out.println("Objeto declarado.");
     }
 
     //Metodos - Comportamiento
-    public void mostrarNombre(){
-        System.out.println("Hola me llamo: " + getNombre());
-    }
-
-    public void mostrarID(){
-        System.out.println("El ID del maestro es: " + getId());
-    }
-
     public String getEspecialidad() {
         return especialidad;
     }
