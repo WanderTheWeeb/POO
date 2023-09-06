@@ -1,5 +1,7 @@
 package Model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -31,7 +33,7 @@ public class Maestro extends Usuario{
     }
 
     ArrayList<CursoDisponible> cursosDisponibles = new ArrayList<>();
-    public void addCursoDisponible(Date date, String hora){
+    public void addCursoDisponible(String date, String hora){
         cursosDisponibles.add(new Maestro.CursoDisponible(date, hora));
     }
 
@@ -45,10 +47,15 @@ public class Maestro extends Usuario{
         private int id;
         private Date fecha;
         private String hora;
+        SimpleDateFormat fechaFormateda = new SimpleDateFormat("dd/MM/yyyy");
 
         //Constructor
-        public CursoDisponible(Date fecha, String hora) {
-            this.fecha = fecha;
+        public CursoDisponible(String fecha, String hora) {
+            try {
+                this.fecha = fechaFormateda.parse(fecha);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
             this.hora = hora;
         }
 
