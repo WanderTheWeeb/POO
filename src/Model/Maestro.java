@@ -76,6 +76,10 @@ public class Maestro extends Usuario{
             return fecha;
         }
 
+        public String getFecha(String texto) {
+            return fechaFormateda.format(fecha);
+        }
+
         public void setFecha(Date fecha) {
             this.fecha = fecha;
         }

@@ -1,5 +1,8 @@
 package UI;
 
+import Model.CitaMaestro;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UIEstudiante {

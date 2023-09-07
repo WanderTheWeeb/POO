@@ -87,9 +87,5 @@ public class UIMenu {
                 }
             }
         }while (!correoCorrecto);
-
-
-
     }
-
 }

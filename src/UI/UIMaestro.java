@@ -25,7 +25,7 @@ public class UIMaestro {
                     mostrarRegistrarCurso();
                     break;
                 case 2:
-                    //Mostrar los cursos del maestro
+                    mostrarMisCursos();
                     break;
                 case 0:
                     System.out.println("Adios");
@@ -35,6 +35,22 @@ public class UIMaestro {
                     System.out.println("Seleccione una opcion correcta");
             }
         }while (respuesta != 0);
+    }
+
+    public static void mostrarMisCursos(){
+        System.out.println("..::Mis cursos::.");
+        Maestro maestro = UIMenu.maestroLogeado;
+
+        if (maestro.getCursosDisponibles().isEmpty()){
+            System.out.println("No hay cursos disponibles.");
+        }
+
+        int j = 0;
+        for (int i = 0; i < maestro.getCursosDisponibles().size(); i++) {
+            j++;
+            System.out.println(j + ".- Fecha: " + maestro.getCursosDisponibles().get(i).getFecha(null)
+            + "Hora: " + maestro.getCursosDisponibles().get(i).getHora());
+        }
     }
 
     public static void mostrarRegistrarCurso(){
@@ -56,6 +72,7 @@ public class UIMaestro {
                 System.out.println("Mes seleccionado: " + UIMenu.MESES[mesRespuesta-1]);
                 System.out.println("Ingresa la fecha a registrar: [dd/mm/yyyy]");
                 String fecha = sc.nextLine();
+                //Validar que la fecha corresponda al mes.
                 System.out.println("La fecha seleccionada es: " + fecha + "\n1.-Continuar\n2.-Cambiar fecha");
                 int respuestaFecha = Integer.valueOf(sc.nextLine());
                 if (respuestaFecha != 1) continue;
@@ -70,7 +87,6 @@ public class UIMaestro {
                 }while (respuestaHora != 1);
 
                 //Parcear la fecha a tipo date
-
                 UIMenu.maestroLogeado.addCursoDisponible(fecha, hora);
                 consultarExistenciaEnMaestroConCursos(UIMenu.maestroLogeado);
             } else if (respuesta == 0) {
