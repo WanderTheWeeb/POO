@@ -38,4 +38,7 @@ public class UIEstudiante {
             }
         }while(respuesta != 0);
     }
+    public static void agendarCurso(){
+
+    }
 }

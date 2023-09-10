@@ -2,6 +2,7 @@ package UI;
 
 import Model.Estudiante;
 import Model.Maestro;
+import Model.Secretaria;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,6 +12,7 @@ public class UIMenu {
         "Julio", "Agosto", "Septiembre", "Octubre","Noviembre", "Diciembre"};
     public static Maestro maestroLogeado;
     public static Estudiante estudianteLogeado;
+    public static Secretaria secretariaLogeado;
 
     public static void mostarMenu(){
         System.out.println("..::Bienvenido::..");
@@ -60,6 +62,12 @@ public class UIMenu {
         estudiantes.add(new Estudiante("Carlos", "calor@uv.mx"));
         estudiantes.add(new Estudiante("Gerardo", "gerardo@uv.mx"));
 
+        ArrayList<Secretaria> secretarias = new ArrayList<>();
+        secretarias.add(new Secretaria("Lupita", "lupe@uv.mx"));
+        secretarias.add(new Secretaria("Mercedes", "mercedes@uv.mx"));
+        secretarias.add(new Secretaria("Carla", "carla@uv.mx"));
+        secretarias.add(new Secretaria("Hola", "hola@uv.mx"));
+
         //Secretarias Tarea
         boolean correoCorrecto = false;
         do {
@@ -86,6 +94,16 @@ public class UIMenu {
                     }
                 }
             }
+            if (tipoUsuario == 3) {
+                for (Secretaria secretaria : secretarias) {
+                    if (secretaria.getCorreo().equals(correo)) {
+                        correoCorrecto = true;
+                        secretariaLogeado = secretaria;
+                        UIEstudiante.mostrarMenuEstudiante();
+                    }
+                }
+            }
         }while (!correoCorrecto);
     }
 }
+
