@@ -19,29 +19,29 @@ public class UIEstudiante {
         System.out.println("2-Ver mis cursos");
         System.out.println("3-Cancelar");
 
-        int respuesta = 0;
+        int respuesta;
         do {
             Scanner sc = new Scanner(System.in);
             respuesta = Integer.parseInt(sc.nextLine());
 
             switch (respuesta) {
-                case 1:
+                case 1 -> {
                     System.out.println("Agendar cursos");
                     reservarCurso();
-                    break;
-                case 2:
-                    verMisCursos();
-                    break;
-                case 3:
+                }
+                case 2 -> verMisCursos();
+                case 3 -> {
                     System.out.println("Adiós");
                     mostrarMenu();
-                    break;
-                default:
-                    System.out.println("Seleccione una opción correcta");
+                }
+                default -> System.out.println("Seleccione una opción correcta");
             }
         } while (respuesta != 0);
     }
 
+    /**
+     * Este es mas bonito
+     */
     private static void verMisCursos() {
         System.out.println("..::Mis cursos::.");
         Estudiante estudiante = estudianteLogeado;
@@ -58,25 +58,26 @@ public class UIEstudiante {
         }
     }
 
+    /**
+     * ODIO ESTE METODO CON TODA MI ALMA
+     */
     private static void reservarCurso() {
         Scanner sc = new Scanner(System.in);
-        int respuestaMaestro = 0;
 
-        do {
+        while (true) {
             System.out.println("..::Reservar Curso::..");
 
             if (maestrosConCursosDisponibles.isEmpty()) {
                 System.out.println("No hay cursos disponibles");
-                return; // Salir de la función si no hay cursos disponibles
             }
 
             int j = 0;
-            for (int i = 0; i < maestrosConCursosDisponibles.size(); i++) {
+            for (Maestro maestrosConCursosDisponible : maestrosConCursosDisponibles) {
                 j++;
-                System.out.println(j + ".- Maestro: " + maestrosConCursosDisponibles.get(i).getNombre());
+                System.out.println(j + ".- Maestro: " + maestrosConCursosDisponible.getNombre());
                 System.out.println("Cursos Disponibles:");
 
-                List<Maestro.CursoDisponible> cursosDisponibles = maestrosConCursosDisponibles.get(i).getCursosDisponibles();
+                List<Maestro.CursoDisponible> cursosDisponibles = maestrosConCursosDisponible.getCursosDisponibles();
 
                 for (Maestro.CursoDisponible curso : cursosDisponibles) {
                     System.out.println(curso.toString());
@@ -84,7 +85,7 @@ public class UIEstudiante {
             }
 
             System.out.println("..::Selecciona un profesor::..");
-            respuestaMaestro = Integer.parseInt(sc.nextLine());
+            int respuestaMaestro = Integer.parseInt(sc.nextLine());
 
             if (respuestaMaestro >= 1 && respuestaMaestro <= maestrosConCursosDisponibles.size()) {
                 Maestro maestroSeleccionado = maestrosConCursosDisponibles.get(respuestaMaestro - 1);
@@ -113,17 +114,26 @@ public class UIEstudiante {
                                     Maestro.CursoDisponible cursoSeleccionado = cursosMaestro.get(respuestaCurso - 1);
                                     estudianteLogeado.getMisCursoDisponibles().add(cursoSeleccionado);
                                     System.out.println("Curso reservado exitosamente.");
+                                    break;
                                 }
                             } else {
                                 System.out.println("Selección de curso no válida.");
                             }
-                        } while (respuestaCurso == 0);
+                        } while (true);
                     }
                 }
             } else {
                 System.out.println("Selección de maestro no válida.");
             }
-        } while (respuestaMaestro != 0);
+
+            System.out.println("Presiona 0 para salir o cualquier otro número para continuar");
+            int salir = Integer.parseInt(sc.nextLine());
+
+            if (salir == 0) {
+                break;
+            }
+        }
         mostrarMenuEstudiante();
     }
+
 }
