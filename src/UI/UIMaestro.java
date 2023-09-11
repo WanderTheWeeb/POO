@@ -29,7 +29,7 @@ public class UIMaestro {
                     break;
                 case 0:
                     System.out.println("Adios");
-                    UIMenu.mostarMenu();
+                    UIMenu.mostrarMenu();
                     break;
                 default:
                     System.out.println("Seleccione una opcion correcta");
@@ -65,7 +65,6 @@ public class UIMaestro {
 
             Scanner sc = new Scanner(System.in);
             respuesta = Integer.valueOf(sc.nextLine());
-            //1,2,3 [Enero, Febrero, Marzo]
 
             if (respuesta>0 && respuesta<4){
                 int mesRespuesta = respuesta;
@@ -86,7 +85,6 @@ public class UIMaestro {
                     respuestaHora = Integer.valueOf(sc.nextLine());
                 }while (respuestaHora != 1);
 
-                //Parcear la fecha a tipo date
                 UIMenu.maestroLogeado.addCursoDisponible(fecha, hora);
                 consultarExistenciaEnMaestroConCursos(UIMenu.maestroLogeado);
             } else if (respuesta == 0) {
@@ -100,4 +98,5 @@ public class UIMaestro {
             maestrosConCursosDisponibles.add(maestro);
         }
     }
+
 }

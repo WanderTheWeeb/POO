@@ -2,6 +2,7 @@ package UI;
 
 import Model.Estudiante;
 import Model.Maestro;
+import Model.Secretaria;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ public class UIMenu {
     public static Maestro maestroLogeado;
     public static Estudiante estudianteLogeado;
 
-    public static void mostarMenu(){
+    public static void mostrarMenu(){
         System.out.println("..::Bienvenido::..");
         System.out.println("Seleccionen una opcion:");
         System.out.println("1-Maestros");
@@ -59,6 +60,9 @@ public class UIMenu {
         estudiantes.add(new Estudiante("Mercader", "mercader@uv.mx"));
         estudiantes.add(new Estudiante("Carlos", "calor@uv.mx"));
         estudiantes.add(new Estudiante("Gerardo", "gerardo@uv.mx"));
+
+        ArrayList<Secretaria> secretarias = new ArrayList<>();
+        secretarias.add(new Secretaria("Lupe", "lupe@uv.mx"));
 
         //Secretarias Tarea
         boolean correoCorrecto = false;

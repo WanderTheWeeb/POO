@@ -10,6 +10,11 @@ public class CitaMaestro implements IAgendable{
     private Date fecha;
     private String hora;
 
+    public CitaMaestro(Estudiante estudiante, Maestro maestro) {
+        this.estudiante = estudiante;
+        this.maestro = maestro;
+    }
+
     public int getId() {
         return id;
     }
